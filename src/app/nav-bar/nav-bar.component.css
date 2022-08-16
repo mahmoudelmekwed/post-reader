@@ -1,0 +1,13 @@
+.navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: left;
+    background: #33b5e5;
+    padding: 20px 200px 20px 200px;
+}
+
+a{
+    color: rgb(235, 241, 243);
+    font-weight: bold;
+}
