@@ -14,11 +14,24 @@ export class PostsComponent implements OnInit {
   constructor(private postservice: PostService) {}
 
   ngOnInit(): void {
-    this.posts = this.postservice.getPosts();
+    this.postservice.getPosts().subscribe(res => {
+      for (let index = 0; index < res.length; index++) {
+        const post = res[index];
+        post["votes"] = 1;
+      }
+
+      this.posts = res;
+    });
   }
 
   hidePost(post: Post):void {
     this.posts = this.posts.filter(p=>p.id !== post.id);
+  }
+
+  addPost(post: Post): void {
+    this.posts.unshift(post);
+    alert("post added!");
+
   }
 
 }
